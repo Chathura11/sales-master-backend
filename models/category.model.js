@@ -22,7 +22,8 @@ const categorySchema = new Schema({
 
     status:{
         type:Number,
-        required:true
+        required:true,
+        default:true
     },
 
     remark:{
