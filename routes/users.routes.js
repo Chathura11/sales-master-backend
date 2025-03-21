@@ -12,10 +12,10 @@ router.post('/register',middleware.isAuthenticated,middleware.checkPermission('m
 router.get('/all',middleware.isAuthenticated,middleware.checkPermission('manage_users'),usersController.getAllUsers);
 
 //get user
-router.get('/edit/:id',middleware.isAuthenticated,middleware.checkPermission('manage_users'),usersController.getUserByID);
+router.get('/edit/:id',middleware.isAuthenticated,usersController.getUserByID);
 
 //edit user
-router.put('/edit/:id',middleware.isAuthenticated,middleware.checkPermission('manage_users'),usersController.updateUser);
+router.put('/edit/:id',middleware.isAuthenticated,usersController.updateUser);
 
 //delete user
 router.delete('/delete/:id',middleware.isAuthenticated,middleware.checkPermission('manage_users'),usersController.deleteUser);
