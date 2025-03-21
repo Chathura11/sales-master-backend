@@ -9,9 +9,19 @@ exports.createCategory = async (categoryData) =>{
     }
 };
 
-exports.getAllCategory = async ()=>{
+exports.getAllCategory = async (req)=>{
     try {
-        return await Category.find()
+        const user = req.user;
+        const permissionNames = user.role.permissions.map(permission => permission.name)
+        const requiredPermission ="configure_settings";
+        
+        if(permissionNames && permissionNames.includes(requiredPermission)){
+            return await Category.find()
+        }else{
+            return await Category.find({status:true})
+        }
+
+        
     } catch (error) {
         throw error;
     }

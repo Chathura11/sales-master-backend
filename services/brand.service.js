@@ -10,9 +10,18 @@ exports.createBrand = async (brandData)=>{
     }
 };
 
-exports.getAllBrands = async ()=>{
+exports.getAllBrands = async (req)=>{
     try{
-        return await Brand.find();
+        const user = req.user;
+        const requiredPermission = 'configure_settings';
+        const permissionNames = user.role.permissions.map(permission => permission.name);
+        if(permissionNames && permissionNames.includes(requiredPermission)){
+            return await Brand.find();
+        }else{
+            return await Brand.find({status:true});
+        }
+
+        
     }catch(error){
         throw error;
     }

@@ -11,7 +11,7 @@ exports.createCategory = async (req,res)=>{
 
 exports.getAllCategory = async (req, res) => {
     try {
-        const category = await categoryService.getAllCategory();
+        const category = await categoryService.getAllCategory(req);
         res.status(200).json({ success: 1, data: category });
     } catch (error) {
         res.status(500).json({ success: 0, message: error.message });

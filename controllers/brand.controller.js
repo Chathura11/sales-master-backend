@@ -11,7 +11,7 @@ exports.createBrand = async (req,res)=>{
 
 exports.getAllBrands = async (req, res) => {
     try {
-        const brands = await brandService.getAllBrands();
+        const brands = await brandService.getAllBrands(req);
         res.status(200).json({ success: 1, data: brands });
     } catch (error) {
         res.status(500).json({ success: 0, message: error.message });

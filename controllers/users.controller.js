@@ -67,7 +67,16 @@ exports.login = async(req,res,next)=>{
         if(error){
             return res.status(400).send({success:0,data:error.details[0].message});
         }
-        const user = await User.findOne({username:req.body.username});
+        const user = await User.findOne({username:req.body.username})
+            .populate('role')
+            .populate({
+                path: 'role',
+                populate: {
+                    path: 'permissions',
+                    model: 'Permission',
+                    select: 'name',
+                },
+            });
         if(!user){
             return res.status(401).send({success:0,data:"Invalid username or password!"});
         }
@@ -79,7 +88,7 @@ exports.login = async(req,res,next)=>{
             return res.status(401).send({success:0,data:"Invalid username or password!"});
         }
 
-        const token = user.generateAuthToken();
+        const token = user.generateAuthToken(user);
         // Save the token in a cookie
         res.cookie('authToken', token, { httpOnly: true });
 
