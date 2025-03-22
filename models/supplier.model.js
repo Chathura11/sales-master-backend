@@ -1,6 +1,8 @@
-import mongoose from "mongoose";
+const mongoose = require('mongoose');
 
-const suplierSchema = mongoose.Schema({
+const Schema = mongoose.Schema;
+
+const supplierSchema = new Schema({
     name:{
         type:String,
         required:true
@@ -28,9 +30,9 @@ const suplierSchema = mongoose.Schema({
         default:true
     }
 
-})
+},{timestamps:true})
 
 
-const Suplier = mongoose.model('Suplier',suplierSchema);
+const Supplier = mongoose.model('Supplier',supplierSchema);
 
-export default Suplier;
+module.exports = Supplier;

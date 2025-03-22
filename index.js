@@ -26,6 +26,7 @@ const userRouters = require('./routes/users.routes')
 const brandRouters = require('./routes/brand.routes');
 const categoryRouters = require('./routes/category.routes');
 const locationRouters = require('./routes/location.routes');
+const supplierRouters = require('./routes/supplier.routes');
 
 
 //user model
@@ -33,6 +34,7 @@ app.use('/api/users',userRouters);
 app.use('/api/brands', brandRouters);
 app.use('/api/categories',categoryRouters);
 app.use('/api/locations',locationRouters);
+app.use('/api/suppliers',supplierRouters);
 
 app.listen(PORT,()=>{
     console.log(`Server is up and run on port ${PORT}`);
