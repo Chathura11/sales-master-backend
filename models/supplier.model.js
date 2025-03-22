@@ -9,7 +9,8 @@ const supplierSchema = new Schema({
     },
     nic:{
         type:String,
-        required:false
+        required:true,
+        unique:true
     },
     email:{
         type:String,
@@ -19,9 +20,13 @@ const supplierSchema = new Schema({
         type:String,
         required:false
     },
+    address:{
+        type:String,
+        required:false
+    },
     imageURL:{
         type:String,
-        required:true,
+        required:false,
         default:"https://static.vecteezy.com/system/resources/thumbnails/000/439/863/small_2x/Basic_Ui__28186_29.jpg"
     },
     status:{
