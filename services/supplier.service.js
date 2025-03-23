@@ -11,16 +11,15 @@ exports.AddSupplier = async (data)=>{
 
 exports.GetAllSuppliers = async (req)=>{
     try {
-        const user = req.user;
-        const requiredPermission = 'configure_settings';
-        const permissionNames = user.role.permissions.map(permission => permission.name);
+        return await Supplier.find().populate("paymentTerm");
+    } catch (error) {
+        throw error;
+    }
+}
 
-        if(permissionNames && permissionNames.includes(requiredPermission)){
-            return await Supplier.find();
-        }else{
-            return await Supplier.find({status:true});
-        }
-
+exports.UpdateSupplier = async (id,data)=>{
+    try {
+        return await Supplier.findByIdAndUpdate(id,data,{new:true})
     } catch (error) {
         throw error;
     }

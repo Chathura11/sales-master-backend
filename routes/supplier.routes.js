@@ -1,6 +1,6 @@
 const express = require('express');
 const supplierRouter = express.Router();
-const {AddSupplier,GetAllSuppliers} = require('../controllers/supplier.controller') 
+const {AddSupplier,GetAllSuppliers,UpdateSupplier} = require('../controllers/supplier.controller') 
 const { isAuthenticated, checkPermission } = require('../middleware/middleware');
 
 
@@ -9,6 +9,8 @@ supplierRouter.post('/',isAuthenticated,checkPermission('configure_settings'), A
 
 //get all suppliers
 supplierRouter.get('/',isAuthenticated,GetAllSuppliers)
+
+supplierRouter.put('/:id',isAuthenticated,checkPermission('configure_settings'), UpdateSupplier);
 
 
 

@@ -21,7 +21,7 @@ const categorySchema = new Schema({
     },
 
     status:{
-        type:Number,
+        type:Boolean,
         required:true,
         default:true
     },

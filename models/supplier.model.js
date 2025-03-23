@@ -33,6 +33,16 @@ const supplierSchema = new Schema({
         type:Boolean,
         required:true,
         default:true
+    },
+    paymentTerm:{
+        type:String,
+        required:true,
+        ref:"PayTerm"
+    },
+    creditLimit:{
+        type:Number,
+        required:false,
+        default:0
     }
 
 },{timestamps:true})

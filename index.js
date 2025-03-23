@@ -22,19 +22,21 @@ app.use(cookieParser());
 
 connection();
 
-const userRouters = require('./routes/users.routes')
-const brandRouters = require('./routes/brand.routes');
-const categoryRouters = require('./routes/category.routes');
-const locationRouters = require('./routes/location.routes');
-const supplierRouters = require('./routes/supplier.routes');
+const userRouter = require('./routes/users.routes')
+const brandRouter = require('./routes/brand.routes');
+const categoryRouter = require('./routes/category.routes');
+const locationRouter = require('./routes/location.routes');
+const supplierRouter = require('./routes/supplier.routes');
+const paytermRouter = require('./routes/payterm.routes')
 
 
 //user model
-app.use('/api/users',userRouters);
-app.use('/api/brands', brandRouters);
-app.use('/api/categories',categoryRouters);
-app.use('/api/locations',locationRouters);
-app.use('/api/suppliers',supplierRouters);
+app.use('/api/users',userRouter);
+app.use('/api/brands', brandRouter);
+app.use('/api/categories',categoryRouter);
+app.use('/api/locations',locationRouter);
+app.use('/api/suppliers',supplierRouter);
+app.use('/api/payterms',paytermRouter)
 
 app.listen(PORT,()=>{
     console.log(`Server is up and run on port ${PORT}`);

@@ -21,7 +21,7 @@ const brandSchema = new Schema({
     },
 
     status:{
-        type:Number,
+        type:Boolean,
         required:true
     },
 
