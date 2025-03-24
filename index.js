@@ -27,7 +27,9 @@ const brandRouter = require('./routes/brand.routes');
 const categoryRouter = require('./routes/category.routes');
 const locationRouter = require('./routes/location.routes');
 const supplierRouter = require('./routes/supplier.routes');
-const paytermRouter = require('./routes/payterm.routes')
+const paytermRouter = require('./routes/payterm.routes');
+const productRouter = require('./routes/product.routes');
+const discountRouter = require('./routes/discount.routes');
 
 
 //user model
@@ -36,7 +38,9 @@ app.use('/api/brands', brandRouter);
 app.use('/api/categories',categoryRouter);
 app.use('/api/locations',locationRouter);
 app.use('/api/suppliers',supplierRouter);
-app.use('/api/payterms',paytermRouter)
+app.use('/api/payterms',paytermRouter);
+app.use('/api/products',productRouter);
+app.use('/api/discounts',discountRouter);
 
 app.listen(PORT,()=>{
     console.log(`Server is up and run on port ${PORT}`);
