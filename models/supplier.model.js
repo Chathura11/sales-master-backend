@@ -7,6 +7,10 @@ const supplierSchema = new Schema({
         type:String,
         required:true
     },
+    contactName:{
+        type:String,
+        required:false
+    },
     nic:{
         type:String,
         required:true,
