@@ -40,3 +40,12 @@ exports.GetAllProducts = async(req)=>{
         throw error;
     }
 }
+
+
+exports.UpdateProduct = async (id,data)=>{
+    try {
+       return await Product.findByIdAndUpdate(id,data,{new:true}); 
+    } catch (error) {
+        throw error;
+    }
+}
