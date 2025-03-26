@@ -95,7 +95,6 @@ exports.login = async(req,res,next)=>{
             secure: false,  // ❌ Set to false for local development
             sameSite: "Lax", // ✅ Allows localhost to access the cookie
             maxAge: 24 * 60 * 60 * 1000, // 1 day
-            path: "/api/auth/refresh",
         });
 
         return res.status(200).send({ success: 1, data: "user logged in successfully!" });
