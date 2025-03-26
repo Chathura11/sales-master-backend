@@ -92,8 +92,8 @@ exports.login = async(req,res,next)=>{
         // Save the token in a cookie
         res.cookie('authToken', token, {
             httpOnly: true,
-            secure: true, // Required for SameSite=None
-            SameSite: "None", // Allows cross-site cookies
+            sameSite: "Lax",
+            secure: false, // Only for local testing
             maxAge: 24 * 60 * 60 * 1000, // 1 day
           });
 
