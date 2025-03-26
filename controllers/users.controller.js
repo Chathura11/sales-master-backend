@@ -91,6 +91,7 @@ exports.login = async(req,res,next)=>{
         const token = user.generateAuthToken(user);
         // Save the token in a cookie
         res.cookie('authToken', token, {
+            secure:true,
             httpOnly: true,
             sameSite: 'None',
             maxAge: tokenInfo.expiry_date * 1000,
