@@ -91,9 +91,9 @@ exports.login = async(req,res,next)=>{
         const token = user.generateAuthToken(user);
         // Save the token in a cookie
         res.cookie('authToken', token,{
-            httpOnly: true,  
-            secure: false,  // ❌ Set to false for local development
-            sameSite: "Lax", // ✅ Allows localhost to access the cookie
+            httpOnly: true,
+            secure: true, // Ensure Secure flag is set for HTTPS
+            sameSite: "None", // Allow cross-origin requests
             maxAge: 24 * 60 * 60 * 1000, // 1 day
         });
 
