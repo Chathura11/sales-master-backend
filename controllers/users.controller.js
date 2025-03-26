@@ -91,13 +91,10 @@ exports.login = async(req,res,next)=>{
         const token = user.generateAuthToken(user);
         // Save the token in a cookie
         res.cookie('authToken', token, {
-            HttpOnly : true,
-            IsEssential : true,
-            Secure : false,
-            SameSite : SameSiteMode.Strict,
-            Domain : "localhost", //using https://localhost:44340/ here doesn't work
-            Expires : DateTime.UtcNow.AddDays(14)
-          });
+            maxAge: 30 * 24 * 60 * 60 * 1000,
+            httpOnly: true,
+            sameSite: 'strict'
+        });
 
         return res.status(200).send({ success: 1, data: "user logged in successfully!" });
     } catch (error) {
