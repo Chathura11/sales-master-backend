@@ -42,6 +42,6 @@ app.use('/api/payterms',paytermRouter);
 app.use('/api/products',productRouter);
 app.use('/api/discounts',discountRouter);
 
-app.listen(PORT,()=>{
-    console.log(`Server is up and run on port ${PORT}`);
+app.listen(4040,()=>{
+    console.log(`Server is up and run on port 4040`);
 });
