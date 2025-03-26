@@ -93,7 +93,7 @@ exports.login = async(req,res,next)=>{
         res.cookie('authToken', token, {
             httpOnly: true,
             secure: true, // Required for SameSite=None
-            SameSite: "None", // Allows cross-site cookies
+            sameSite: "None", // Allows cross-site cookies
             maxAge: 24 * 60 * 60 * 1000, // 1 day
           });
 
