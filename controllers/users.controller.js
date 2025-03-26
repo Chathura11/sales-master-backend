@@ -93,7 +93,7 @@ exports.login = async(req,res,next)=>{
         res.cookie('authToken', token, {
             maxAge: 30 * 24 * 60 * 60 * 1000,
             httpOnly: true,
-            sameSite: 'strict'
+            sameSite: 'None'
         });
 
         return res.status(200).send({ success: 1, data: "user logged in successfully!" });
