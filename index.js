@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 5050;
 // Use the cors middleware
 app.use(cors({
     origin: 'http://localhost:3000', // Replace with your actual frontend domain
-    credentials: false, // Enable credentials (cookies, authorization headers, etc.)
+    credentials: true, // Enable credentials (cookies, authorization headers, etc.)
   }));
 
 
