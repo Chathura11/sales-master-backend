@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 5050;
 
 // Use the cors middleware
 app.use(cors({
-    origin: 'http://localhost:3000', // Replace with your actual frontend domain
+    origin: 'sales-master-d326b.firebaseapp.com', // Replace with your actual frontend domain
     credentials: true, // Enable credentials (cookies, authorization headers, etc.)
   }));
 
