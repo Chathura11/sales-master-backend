@@ -91,6 +91,7 @@ exports.login = async(req,res,next)=>{
         const token = user.generateAuthToken(user);
         // Save the token in a cookie
         res.cookie('authToken', token,{
+            httpOnly: true,
             secure: true, // Ensure Secure flag is set for HTTPS
             sameSite: "None", // Allow cross-origin requests
             maxAge: 24 * 60 * 60 * 1000, // 1 day
@@ -146,8 +147,21 @@ exports.getUser = async (req, res, next) => {
 
 // Logout route
 exports.logout = function (req, res) {
-    // Clear the authentication cookie
-    res.clearCookie('authToken');
+    res.clearCookie('authToken', {
+        path: '/',
+        domain: 'https://sales-master-d326b.web.app',
+        httpOnly: true,
+        secure: true,
+        sameSite: 'None'
+    });
+
+    res.clearCookie('authToken', {
+        path: '/',
+        domain: 'http://localhost:3000',
+        httpOnly: true,
+        secure: true,
+        sameSite: 'None'
+    });
 
     res.status(200).send({ success: 1, data: 'Logout successful' });
 };
