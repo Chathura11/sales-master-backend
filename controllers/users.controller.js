@@ -147,17 +147,8 @@ exports.getUser = async (req, res, next) => {
 
 // Logout route
 exports.logout = function (req, res) {
-    res.clearCookie('authToken', {
-        path: '/',
-        domain: 'https://sales-master-d326b.web.app',
-        httpOnly: true,
-        secure: true,
-        sameSite: 'None'
-    });
-
-    res.clearCookie('authToken', {
-        path: '/',
-        domain: 'http://localhost:3000',
+    // Clear the authentication cookie
+    res.clearCookie('authToken',{
         httpOnly: true,
         secure: true,
         sameSite: 'None'
